@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Bootstrap Loader on Button</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <button id="loadButton"  class="btn btn-primary">
+      <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+      Button
+    </button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+      $('#loadButton').click(function() {
+        var button = $(this);
+        var spinner = button.find('.spinner-border');
+
+        // Disable the button and show the spinner
+        button.prop('disabled', true);
+        spinner.removeClass('d-none');
+
+        // Simulate an asynchronous operation (e.g., an AJAX request)
+        setTimeout(function() {
+          // Enable the button, hide the spinner, and update the button text
+          button.prop('disabled', false);
+          spinner.addClass('d-none');
+          button.html('Loaded!');
+        }, 2000); // Simulating a 2-second delay, replace with your actual asynchronous operation
+      });
+    });
+  </script>
+  
+</body>
+</html>
